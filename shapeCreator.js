@@ -29,5 +29,38 @@ dialog.add("panel", undefined, "").preferredSize.height = 20;
 var createButton = dialog.add("button", undefined, "Create");
 createButton.alignment = "center";
 
+createButton.onClick = function () {
+  var selectedShape = shapeDropdown.selection.text;
+  var fillColor;
+
+  // Get the center point of the document
+  var centerX = doc.width / 2;
+  var centerY = doc.height / 2;
+
+  // Create the selected shape at the center of the page with a specific fill color
+  if (selectedShape === "Rectangle") {
+    fillColor = new RGBColor();
+    fillColor.red = 255; // Red color for rectangle
+    fillColor.green = 0;
+    fillColor.blue = 0;
+    var rectangle = doc.pathItems.rectangle(
+      centerY - 50,
+      centerX - 50,
+      100,
+      100
+    );
+    rectangle.fillColor = fillColor;
+
+    // Add text within the rectangle
+    var textFrame = doc.textFrames.add();
+    textFrame.contents = "Rectangle";
+    textFrame.top = rectangle.top + (rectangle.height - textFrame.height) / 2;
+    textFrame.left = rectangle.left + (rectangle.width - textFrame.width) / 2;
+  }
+
+  // Close the dialog box
+  dialog.close();
+};
+
 // Show the dialog box
 dialog.show();
