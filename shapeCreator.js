@@ -25,5 +25,9 @@ shapeDropdown.maximumSize.width = 220;
 // Add space below the shape panel
 dialog.add("panel", undefined, "").preferredSize.height = 20;
 
+// Add a create button
+var createButton = dialog.add("button", undefined, "Create");
+createButton.alignment = "center";
+
 // Show the dialog box
 dialog.show();
