@@ -13,5 +13,17 @@ shapePanel.alignChildren = "left";
 shapePanel.preferredSize.width = 280;
 shapePanel.preferredSize.height = 80;
 
+// Add a dropdown for selecting shape with increased width
+var shapeDropdown = shapePanel.add(
+  "dropdownlist",
+  [10, 10, 240, 30],
+  ["Rectangle", "Circle", "Ellipse"]
+);
+shapeDropdown.selection = 0;
+shapeDropdown.maximumSize.width = 220;
+
+// Add space below the shape panel
+dialog.add("panel", undefined, "").preferredSize.height = 20;
+
 // Show the dialog box
 dialog.show();
