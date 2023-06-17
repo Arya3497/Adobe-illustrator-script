@@ -56,6 +56,19 @@ createButton.onClick = function () {
     textFrame.contents = "Rectangle";
     textFrame.top = rectangle.top + (rectangle.height - textFrame.height) / 2;
     textFrame.left = rectangle.left + (rectangle.width - textFrame.width) / 2;
+  } else if (selectedShape === "Circle") {
+    fillColor = new RGBColor();
+    fillColor.red = 0; // Green color for circle
+    fillColor.green = 255;
+    fillColor.blue = 0;
+    var circle = doc.pathItems.ellipse(centerY - 50, centerX - 50, 100, 100);
+    circle.fillColor = fillColor;
+
+    // Add text within the circle
+    var textFrame = doc.textFrames.add();
+    textFrame.contents = "Circle";
+    textFrame.top = circle.top + (circle.height - textFrame.height) / 2;
+    textFrame.left = circle.left + (circle.width - textFrame.width) / 2;
   }
 
   // Close the dialog box
