@@ -69,6 +69,19 @@ createButton.onClick = function () {
     textFrame.contents = "Circle";
     textFrame.top = circle.top + (circle.height - textFrame.height) / 2;
     textFrame.left = circle.left + (circle.width - textFrame.width) / 2;
+  } else if (selectedShape === "Ellipse") {
+    fillColor = new RGBColor();
+    fillColor.red = 0; // Blue color for ellipse
+    fillColor.green = 0;
+    fillColor.blue = 255;
+    var ellipse = doc.pathItems.ellipse(centerY - 50, centerX - 100, 200, 100);
+    ellipse.fillColor = fillColor;
+
+    // Add text within the ellipse
+    var textFrame = doc.textFrames.add();
+    textFrame.contents = "Ellipse";
+    textFrame.top = ellipse.top + (ellipse.height - textFrame.height) / 2;
+    textFrame.left = ellipse.left + (ellipse.width - textFrame.width) / 2;
   }
 
   // Close the dialog box
